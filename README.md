@@ -1,5 +1,4 @@
-# mj583
-J583 Advanced Interactive Media
+# MJ583 Advanced Interactive Media
 
 Advanced Web programming and storytelling for the Web with focus on data visualization and data storytelling. Students will use learn Python,JavaScript and other web publishing languages while creating interactive storytelling and data visualization projects. Students will collect and incorporate data via APIs, datasets, databases and web scraping along with photos, text, video and graphics to create interactive multimedia presentations using advanced Python and javascript concepts, libraries and frameworks such as D3.js, Flask and Pandas 
 
