@@ -11,6 +11,12 @@ https://learnpythonthehardway.org/book/ ( optional purchase)
 Data Visualization with Python and JavaScript by Kyran Dale
 https://www.amazon.com/Data-Visualization-Python-JavaScript-Transform/dp/1491920513
 
+## Optional Video Resorces (Free for UNC Students)
+Python for Data Science https://www.lynda.com/Python-tutorials/Learning-Python-Data-Science-Tim-Fox-Elephant-Scale/536426-2.html
+
+DataViz with D3.js https://www.lynda.com/D3-js-tutorials/Learning-Data-Visualization-D3-js/594451-2.html?srchtrk=index%3a1%0alinktypeid%3a2%0aq%3aD3.js%0apage%3a1%0as%3arelevance%0asa%3atrue%0aproducttypeid%3a2
+
+
 ## Software
 We will use Terminal, Atom and iPython but any IDE or HTML/CSS/JavaScript Code editor will be fine. Many students use Sublime Text or Atom but NEVER USE Dreamweaver.
 
