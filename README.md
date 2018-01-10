@@ -6,7 +6,7 @@ This course will expand on the knowledge and skills learned in J586 and multimed
 
 ## Text Book
 Python the Hard Way by Zed Shaw 
-https://learnpythonthehardway.org/book/ ( optional purchase)
+https://learnpythonthehardway.org/book/ 
 
 Data Visualization with Python and JavaScript by Kyran Dale
 https://www.amazon.com/Data-Visualization-Python-JavaScript-Transform/dp/1491920513
