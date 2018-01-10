@@ -21,3 +21,11 @@ DataViz with D3.js https://www.lynda.com/D3-js-tutorials/Learning-Data-Visualiza
 We will use Terminal, Atom and iPython but any IDE or HTML/CSS/JavaScript Code editor will be fine. Many students use Sublime Text or Atom but NEVER USE Dreamweaver.
 
 
+Access to Labs: 
+http://jhelp.web.unc.edu/access/
+
+Adobe Software
+http://software.sites.unc.edu/adobe/
+
+Lynda Login
+http://software.sites.unc.edu/lynda/
