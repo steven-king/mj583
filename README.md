@@ -1,5 +1,9 @@
 Video Share: https://zoom.us/j/595701564
 
+```
+docker run -p 9000:9000 -d -t
+```
+
 
 # MJ583 Advanced Interactive Media
 
