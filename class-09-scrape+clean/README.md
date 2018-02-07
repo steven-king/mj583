@@ -1,3 +1,28 @@
+
+## What are we trying to do? 
+
+* Scrape Roster Page
+
+* Store each player in the roster
+
+* Scrape each players page
+
+* Store Bio and Image
+
+* Trigger Ajax call for data
+
+* Store that data
+
+* Parse that data into usable numbers
+
+* Save all to JSON File
+
+
+
+
+
+
+
 To create your own Docker Image with new requirements
 
 ``` docker buid -t tagname . ```
