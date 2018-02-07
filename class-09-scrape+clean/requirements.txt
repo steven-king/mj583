@@ -1,0 +1,4 @@
+requests
+scrapy
+numpy
+pandas
