@@ -1,5 +1,7 @@
 Video Share: https://zoom.us/j/595701564
 
+Docker Install: https://store.docker.com/editions/community/docker-ce-desktop-mac
+
 ```
 docker run -p 9000:9000 -d -t
 ```

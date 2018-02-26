@@ -1,0 +1,11 @@
+version: '2'
+services:
+  db:
+    image: postgres
+  web:
+    build: .
+    command: /opt/project/env/bin/python3 /opt/project/mysite/manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db

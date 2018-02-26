@@ -20,5 +20,23 @@ RUN useradd unc
 # Make that user the owner of the files in our project directory
 RUN chown -R unc /opt/project
 
+# Create a virtualenv
+RUN python3 -m venv /opt/project/env
+
+# Create a requirements.txt
+RUN echo "django==2.0\npsycopg2" > /opt/project/requirements.txt
+
+# PIP install the requirements
+RUN /opt/project/env/bin/pip3 install -r requirements.txt
+
+# Use the Django default StartProject command
+RUN /opt/project/env/bin/django-admin startproject mysite
+
+# Remove old settings.py
+RUN rm /opt/project/mysite/mysite/settings.py
+
+# Replace settings.py with our modified version
+COPY settings.py /opt/project/mysite/mysite/settings.py
+
 # Switch to the unc user
 USER unc
