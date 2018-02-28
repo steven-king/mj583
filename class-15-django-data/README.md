@@ -19,3 +19,4 @@ Now you can run any command using
 ```
 run_d projectname/manage.py
 ```
+
