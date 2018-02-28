@@ -1,0 +1,27 @@
+docker build -t class-14 .
+
+
+docker run -v $PWD:/opt/project -it class-14 python3 -m venv env
+
+docker run -v $PWD:/opt/project -it class-14 ./env/bin/pip3 install -r requirements.txt
+
+docker run -v $PWD:/opt/project -it class-14 ./env/bin/django-admin startproject jSchool
+
+docker run -v $PWD:/opt/project -p 8000:8000 -it class-14 ./env/bin/python3 jSchool/manage.py runserver 0.0.0.0:8000
+
+docker run -v $PWD:/opt/project -p 8000:8000 -it django-class-14 ./env/bin/python3 jSchool/manage.py runserver 0.0.0.0:8000
+
+docker run -v $PWD:/opt/project -p 8000:8000 -it django-class-14 ./env/bin/python3 jSchool/manage.py migrate
+
+curl http://steventking.com/clients/data_students_withgrade.json
+
+curl http://steventking.com/clients/data_students_withgrade.json > data_students_withgrade.json
+
+ls
+
+docker run -v $PWD:/opt/project -p 8000:8000 -it django-class-14 ./env/bin/python3 jSchl/manage.py createsuperuser
+
+docker run -v $PWD:/opt/project -p 8000:8000 -it django-class-14 ./env/bin/python3 jSchool/manage.py migrate --run-syncdb
+
+
+rm jSchool/db.sqlite3

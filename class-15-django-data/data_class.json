@@ -1,0 +1,38 @@
+[
+    {
+        "pk": 1,
+        "model": "jSchool.Course",
+        "fields": {
+            "date": "2012-01-12",
+            "name": "Advanced Interactive Media",
+            "instructor": "Steven King",
+            "description": "Learn data-driven storytelling and presention in Django",
+            "term": "Spring 2013",
+            "call_number": "J583"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "jSchool.Course",
+        "fields": {
+            "date": "2012-06-12",
+            "name": "Intermediate Interactive Media",
+            "instructor": "Steven King",
+            "description": "Learn interactive infogrpahic and online storytelling through JavaScript and HTML/CSS",
+            "term": "Fall 2012",
+            "call_number": "J586"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "jSchool.Course",
+        "fields": {
+            "date": "2012-06-15",
+            "name": "Intro to Interactive Multimedia",
+            "instructor": "Steven King",
+            "description": "Learn interactive infogrpahic and online storytelling through JavaScript and HTML/CSS",
+            "term": "Fall 2012",
+            "call_number": "J187"
+        }
+    }
+    ]
