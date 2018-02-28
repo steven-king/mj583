@@ -1,5 +1,6 @@
 Today we are going to work on modeling data with a simple concept and loading some sample data.
 
+## Set Up Django, Easier ##
 1. Pull the latest image from docker
 ``` docker pull steventking/django-starter-sqlite:latest ```
 
@@ -24,7 +25,7 @@ docker run -v $PWD:/opt/project -it steventking/django-starter-sqlite ./env/bin/
 docker run -v $PWD:/opt/project -p 8000:8000 -it steventking/django-starter-sqlite ./env/bin/python3 jSchool/manage.py runserver 0.0.0.0:8000
 
 ```
-X. Now we will create an alias to run things so we dont have to type this long command:
+6. Now we will create an alias to run things so we dont have to type this long command:
 ```
 #don't run this
 docker run -v $PWD:/opt/project -p 8000:8000 -it steventking/django-starter-sqlite ./env/bin/python3 jSchool/manage.py
@@ -33,11 +34,30 @@ docker run -v $PWD:/opt/project -p 8000:8000 -it steventking/django-starter-sqli
 ```
 #run this to create an alisis
 
-alias docker-manage-py="docker run -v $PWD:/opt/project -p 8000:8000 -it steventking/django-starter-sqlite ./env/bin/python3 jSchool/manage.py"
+alias drm="docker run -v $PWD:/opt/project -p 8000:8000 -it steventking/django-starter-sqlite ./env/bin/python3 jSchool/manage.py"
 ```
 Now you can run any command using
 
 ```
-run_d projectname/manage.py
+drm runserver 0.0.0.0:8000 
+or
+drm any-django-manage-command [params]
+```
+## Build App ##
+7. Make Models by creating a models.py in the app folder.
+
+```python
+#path: jSchool/jSchool
+from django.db import models
+
+class Student(models.Model):
+    name = models.CharField(unique=True, max_length=50)
+    pid = models.CharField(unique=True, max_length=12)
+    grade = models.IntegerField(unique=False, null=True)
+
+
+#note: the name field should not be unique but this is to demenstrate an error and how to handle it with real data.
+
+
 ```
 
