@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+
+{% block content %}
+<h1> UNC Interactive Media</h1>
+<h2>Students and Courses</h2>
+<p>This new interactive media major has {{student_count|intcomma }} students taking {{ course_count|intcomma }} courses.
+
+{% endblock %}

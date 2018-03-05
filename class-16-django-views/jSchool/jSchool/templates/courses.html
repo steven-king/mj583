@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% block content %}
+<h2>List of Course</h2>
+
+{% for course in courses %}
+    {# Each "course" is a Course model object. #}
+    {{ course.name }}<br />
+    ...
+{% endfor %}
+
+{% endblock %}
