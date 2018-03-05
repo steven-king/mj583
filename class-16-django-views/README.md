@@ -81,5 +81,11 @@ def home(request):
 ```
 drm runserver 0.0.0.0:8000 
 
+```
+Go to localhost:8000/test
+<img src="https://i.imgur.com/QzZSuYM.png">
 
+
+8. What just happend?:
+<img src="https://i.imgur.com/79s8ori.png">
 
