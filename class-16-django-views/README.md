@@ -89,3 +89,40 @@ Go to localhost:8000/test
 8. What just happend?:
 <img src="https://i.imgur.com/79s8ori.png">
 
+9. Clean it up a little by ading an App. There is an app called Humanize. 
+Add ```'django.contrib.humanize',``` to your app setting. It should look like this when complete.
+
+edit settings.py
+```python
+#settings.py
+...
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'django.contrib.humanize',
+    'jSchool',
+]
+
+...
+```
+10. Back on your base.html template load the humanize context. 
+
+Add ``` {% load humanize %} ``` to the top of the base.html
+
+11. Add ``` |intcomma `` where you want numbers to have commas. 
+
+```
+{{student_count|intcomma }} and {{ course_count|intcomma }}
+```
+
+12. Now that we have the templates working. Let's make better templates! We should use the power of templates.
+
+<img src="https://i.imgur.com/dGNGHfH.png">
+
+13. 
+
