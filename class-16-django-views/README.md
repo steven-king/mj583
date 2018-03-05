@@ -120,9 +120,68 @@ Add ``` {% load humanize %} ``` to the top of the base.html
 {{student_count|intcomma }} and {{ course_count|intcomma }}
 ```
 
-12. Now that we have the templates working. Let's make better templates! We should use the power of templates.
-
+12. Now that we have the templates working. Let's make better templates! We should use the power of templates. In this case, we are going to split the base.html file into two files.
 <img src="https://i.imgur.com/dGNGHfH.png">
 
-13. 
+13. Create an html file called home.html in the templates folder.
+
+14. Edit the base file so it looks like this:
+```html
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>{% block title %} UNC Interactive Media {% endblock %}</title>
+  <meta name="description" content="Learning Django">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+
+<body>
+  <script src="js/scripts.js"></script>
+  <div class="container">
+  {% block content %}
+  {% endblock %}
+</div>
+  </body>
+</html>
+
+
+```
+
+15. edit the home.thml file so it looks like this:
+```html
+{% extends "base.html" %}
+{% load humanize %}
+
+
+{% block content %}
+<h1> UNC Interactive Media</h1>
+<h2>Students and Courses</h2>
+<p>This new interactive media major has {{student_count|intcomma }} students taking {{ course_count|intcomma }} courses.
+
+{% endblock %}
+
+
+```
+15. Update the views.py to change the template it loads to home.html
+
+```python
+
+#jSchool/views.py
+
+from django.shortcuts import render
+from jSchool.models import Course, Student
+
+def home(request):
+    context = {
+        'student_count': Student.objects.count(),
+        'course_count': Course.objects.count(),
+    }
+    return render(request, "home.html", context)
+
+
+```
+
 
