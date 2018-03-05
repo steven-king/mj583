@@ -183,5 +183,9 @@ def home(request):
 
 
 ```
+16. Run server and test the /test url
+```
+runserver 0.0.0.0:8000 
+```
 
 
