@@ -5,6 +5,8 @@
 2. Add the View and context on views.py
 3. Edit the template in the app/template directory
 
+
+### Getting Started ###
 1. Make sure you are working the the class 15 (last week's folder). We will just keep adding to this. 
 Note: All of the finished code is in this repo for your refrence.
 
