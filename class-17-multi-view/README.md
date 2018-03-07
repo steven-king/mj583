@@ -30,8 +30,7 @@ source ~/.bashrc
 ```python
 urlpatterns = [
     path('', views.home),
-    path('student/(?P<pk>\d+)$', views.student),
-    path('course/(?P<pk>\d+)$', views.course),
+    path('course/<int:pk>', views.course),
 
     path('admin/', admin.site.urls),
 ]
@@ -39,9 +38,28 @@ urlpatterns = [
 ```
 The regex expression says, match the letter P followed by a primary key <pk> that is a number \d for one or more places +. End of the line $.
 
-6. Add a few imports to your views.py
+6. Add a few imports to your views.py and then handle receiving the primary key from the url.
 ```python
 # jSchool/views.py
 from django.shortcuts import render, get_object_or_404, redirect, render_to_response
+...
+
+def course(request, pk):
+    course = get_object_or_404(Course, id=pk)
+    context = {
+        #course = Course.objects.order_by('?'[0])
+        'course' : course,
+    }
+    return render(request, "course.html", context)
+
 ```
+
+What is happening?
+
+a. A request is sent with the primary ky in the url (defination of the function)
+
+b. if it does not exsist, give a 404 error.
+
+c. pass the entire model data to the template as a context variable.
+
 
