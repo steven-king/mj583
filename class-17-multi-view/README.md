@@ -36,7 +36,6 @@ urlpatterns = [
 ]
 
 ```
-The regex expression says, match the letter P followed by a primary key <pk> that is a number \d for one or more places +. End of the line $.
 
 6. Add a few imports to your views.py and then handle receiving the primary key from the url.
 ```python
@@ -53,6 +52,23 @@ def course(request, pk):
     return render(request, "course.html", context)
 
 ```
+7. Edit the course.html template to receive the data using template tags. 
+```html
+{% extends "base.html" %}
+{% load humanize %}
+{% block content %}
+<h2>Course: {{ course.name }}</h2>
+<p>Details</p>
+<ul>
+    <li>{{ course.instructor }}</li>
+    <li>{{ course.term }}</li>
+
+</ul>
+{% endblock %}
+
+
+```
+
 
 What is happening?
 
