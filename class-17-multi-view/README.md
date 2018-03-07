@@ -167,3 +167,63 @@ def course_list(request):
 
 ```
 
+12. But what about the 5000 students????
+A quick google church for djanogo pagination answer the qustion. 
+
+13. On the views.py, you will add this line ```from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger```
+so the header looks like this:
+```python
+from django.shortcuts import render, get_object_or_404, redirect, render_to_response
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from jSchool.models import Course, Student
+
+```
+Then update the student_list view to include the pagination code.
+```python
+...
+def student_list(request):
+    student_list =  Student.objects.all()
+    paginator = Paginator(student_list, 25) # Show 25 contacts per page
+    page = request.GET.get('page')
+    students = paginator.get_page(page)
+    context = {
+        'students' : students
+    }
+    return render(request, "student_list.html", context)
+
+...
+
+```
+
+14. Create a student_list.html file in the templates folder and use this code:
+```html
+{% extends "base.html" %}
+
+{% block content %}
+<ul>
+{% for student in students %}
+    {# Each "student" is a Student model object. #}
+
+    <li><a href="{{ student.id }}">{{ student.name }}</a></li>
+{% endfor %}
+</ul>
+<div class="pagination">
+    <span class="step-links">
+        {% if contacts.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ students.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ students.number }} of {{ students.paginator.num_pages }}.
+        </span>
+
+        {% if contacts.has_next %}
+            <a href="?page={{ students.next_page_number }}">next</a>
+            <a href="?page={{ students.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+```
+
