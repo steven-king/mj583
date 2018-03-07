@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>All Classes</h2>
+    <ul>
+    {% for course in course_list %}
+    {# Each "course" is a course model object. #}
+    <li><a href="{{ course.id }}">{{ course.name }}</a> | {{ course.callnumber}}</li>
+{% endfor %}
+  <ul>
+{% endblock %}

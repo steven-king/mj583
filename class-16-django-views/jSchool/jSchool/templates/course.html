@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 {% load humanize %}
 {% block content %}
-<h2>Single Course</h2>
+<h2>{{ course.name }}</h2>
+<p>Course Details</p>
+<ul>
+    <li>Instructor: {{ course.instructor }}</li>
+    <li>Semester: {{ course.term }}</li>
+
+</ul>
 {% endblock %}
