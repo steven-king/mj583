@@ -165,8 +165,6 @@ def course_list(request):
   <ul>
 {% endblock %}
 
-{% endblock %}
-
 ```
 
 12. But what about the 5000 students????
@@ -211,7 +209,7 @@ def student_list(request):
 </ul>
 <div class="pagination">
     <span class="step-links">
-        {% if contacts.has_previous %}
+        {% if students.has_previous %}
             <a href="?page=1">&laquo; first</a>
             <a href="?page={{ students.previous_page_number }}">previous</a>
         {% endif %}
@@ -220,7 +218,7 @@ def student_list(request):
             Page {{ students.number }} of {{ students.paginator.num_pages }}.
         </span>
 
-        {% if contacts.has_next %}
+        {% if students.has_next %}
             <a href="?page={{ students.next_page_number }}">next</a>
             <a href="?page={{ students.paginator.num_pages }}">last &raquo;</a>
         {% endif %}
