@@ -110,6 +110,7 @@ def student(request, pk):
 ```
 
 ```html
+<!-- student.html
 {% extends "base.html" %}
 {% load humanize %}
 {% block content %}
