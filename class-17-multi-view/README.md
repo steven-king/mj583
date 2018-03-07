@@ -154,15 +154,17 @@ def course_list(request):
 11. Create a course_list.html in the templates folder and add this code.
 ```html
 {% extends "base.html" %}
-{% load humanize %}
-{% block content %}
-<h2>{{ course.name }}</h2>
-<p>Course Details</p>
-<ul>
-    <li>Instructor: {{ course.instructor }}</li>
-    <li>Semester: {{ course.term }}</li>
 
-</ul>
+{% block content %}
+    <h2>All Classes</h2>
+    <ul>
+    {% for course in course_list %}
+    {# Each "course" is a course model object. #}
+    <li><a href="{{ course.id }}">{{ course.name }}</a> | {{ course.callnumber}}</li>
+{% endfor %}
+  <ul>
+{% endblock %}
+
 {% endblock %}
 
 ```
@@ -227,3 +229,28 @@ def student_list(request):
 
 ```
 
+15. It almost works!
+Check your urls. Note, they go to a relative path that is not correct. We can fix that by adding a name to the url pattern.
+
+On urls.py, add a name, typically include the app name because you might have duplicated names on many apps.
+```python
+urlpatterns = [
+    path('', views.home),
+    path('courses/', views.course_list, name='jSchool_course_list'),
+    path('students/', views.student_list, name='jSchool_student_list'),
+    path('course/<int:pk>', views.course, name='jSchool_course'),
+    path('student/<int:pk>', views.student, name='jSchool_student'),
+
+    path('admin/', admin.site.urls),
+]
+```
+
+16. Now update any template files that have a URL to include the name rather than the relative path like this.
+```html
+<li><a href="{% url 'jSchool_student' student.id %}">{{ student.name }}</a></li>
+
+or
+  <a href="{% url 'jSchool_student_list'%}">Students</a>
+
+```
+17. Fix your courses list page urls.
