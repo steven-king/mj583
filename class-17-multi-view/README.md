@@ -79,3 +79,47 @@ b. if it does not exsist, give a 404 error.
 c. pass the entire model data to the template as a context variable.
 
 
+8. Now lets repeat to make the student pages work, 
+
+```python 
+#jSchool/urls.py
+from django.contrib import admin
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.home),
+    path('course/<int:pk>', views.course),
+    path('student/<int:pk>', views.student),
+
+    path('admin/', admin.site.urls),
+]
+
+```
+
+```python 
+#jSchool/views.py
+...
+def student(request, pk):
+    student = get_object_or_404(Student, id=pk)
+    context = {
+        'student' : student,
+    }
+    return render(request, "student.html", context)
+
+```
+
+```html
+{% extends "base.html" %}
+{% load humanize %}
+{% block content %}
+<h2>{{ student.name }}</h2>
+<p>Student Details</p>
+<ul>
+    <li>PID: {{ student.pid }}</li>
+    <li>Current Grade: {{ student.grade }}</li>
+
+</ul>
+{% endblock %}
+
+```
