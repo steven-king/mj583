@@ -1,0 +1,48 @@
+{% extends "winners/base.html" %}
+
+{% block breadcrumbs %}
+    <li class="breadcrumb-item"><a href="{% url "winners:home" %}">Home</a></li>
+    <li class="breadcrumb-item active">List</li>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <p>{{ objects.count }} {{ list_type }} 
+                        {% if filter_by %} where {{ filter_by }} is {{ filter_val|title }} {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for o in objects %}
+                    <tr>
+                        <td>
+                            {% if list_type|lower != "winners" %}
+                                <a href="{% url "winners:winners-list" %}?filter={{ filter_by|lower }}&val={{ o.name|lower }}">
+                                    {{ o }}
+                                </a>
+                            {% else %}
+                                <a href="{{ o.get_absolute_url }}">
+                                    {{ o }}
+                                </a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+        </div>
+    </div>
+{% endblock %}
