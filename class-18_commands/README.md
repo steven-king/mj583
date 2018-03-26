@@ -1,8 +1,14 @@
 
 # Start a Django app for nobel winners.
 
-Create a new virtual env if one is not created already:
-1.
+0. Build the image
+```
+docker build -t nobel-app .
+```
+
+
+1. Create a new virtual env if one is not created already:
+
 ```
 docker run -v $PWD:/opt/project -it nobel-app python3 -m venv env
 ```
