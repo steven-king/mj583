@@ -163,6 +163,23 @@ docker run -v $PWD:/opt/project -it nobel-app ./env/bin/python3 nobel/manage.py 
 
 21. If there were data errors you can inspect `skipped.json` (if it exists).
 
+
+22. To DO list to make urls work for individual people
+* Open url in urls.py
+  must have reverse name
+  
+* new detail view
+  needs to have access to person, winners models
+  
+* new template
+
+* change href in list template
+get_absolute_url
+
+* models.py, add get_absolute_url function to the Winner class
+
+
+
 22. After fixing the errors, you can run the command again but pass in the the skipped.json file.
 ```
 docker run -v $PWD:/opt/project -it nobel-app ./env/bin/python3 nobel/manage.py load_winners wiki-clean.json
