@@ -65,10 +65,12 @@ d3.select(".chart")
 ```
 
 ```html
+<!-- html -->
 <div class="chart"></div>
 ```
 
 ```css
+//css
 .chart div {
   font: 10px sans-serif;
   background-color: steelblue;
@@ -78,5 +80,26 @@ d3.select(".chart")
   color: white;
 }
 ```
+Explained: The data is loaded as Data
+d3 selects the class of chart
+It selects all interior ```divs``` but because there are none there it inserts some blank ```<div>``` nodes.
+It styles those divs by making them a specific size based on the value in the data.
+Note: this is an nice loop over the data without having to write it. This came from the .data() function.
+The text is added based on the data.
+
+8.
+Here is a little more to it.
+
+```JavaScript
+d3.select(".chart")
+  .selectAll("div")
+  .data(data)
+    .enter()
+    .append("div")
+    .style("width", function(d) { return d * 2 + "px"; })
+    .text(function(d) { return '$ ' + d; });
+
+```
+We are changing the size and the text. 
 
 
