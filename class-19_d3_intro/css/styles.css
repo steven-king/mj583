@@ -3,5 +3,24 @@ body {
 }
 .starter-template {
   padding: 3rem 1.5rem;
-  text-align: center;
+}
+
+.chart div {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}
+
+
+.chart2 rect {
+  fill: steelblue;
+}
+
+.chart2 text {
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: end;
 }
