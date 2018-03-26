@@ -46,8 +46,37 @@ D3’s focus on transformation extends naturally to animated transitions. Transi
 ```JavaScript
 d3.select("body").transition()
     .style("background-color", "black");
-    
 
+```
+
+## Making our first D3 Bar Chart
+7.
+```JavaScript
+//js
+var data = [30, 86, 168, 281, 303, 365];
+
+d3.select(".chart")
+  .selectAll("div")
+  .data(data)
+    .enter()
+    .append("div")
+    .style("width", function(d) { return d + "px"; })
+    .text(function(d) { return d; });
+```
+
+```html
+<div class="chart"></div>
+```
+
+```css
+.chart div {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}
 ```
 
 
