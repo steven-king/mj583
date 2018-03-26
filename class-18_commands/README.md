@@ -164,7 +164,16 @@ docker run -v $PWD:/opt/project -it nobel-app ./env/bin/python3 nobel/manage.py 
 21. If there were data errors you can inspect `skipped.json` (if it exists).
 
 
-22. To DO list to make urls work for individual people
+
+22. After fixing the errors, you can run the command again but pass in the the skipped.json file.
+```
+docker run -v $PWD:/opt/project -it nobel-app ./env/bin/python3 nobel/manage.py load_winners wiki-clean.json
+```
+
+# Next, passing this data from Django to D3.JS!
+
+
+23. To DO list to make urls work for individual people
 * Open url in urls.py
   must have reverse name
   
@@ -180,9 +189,3 @@ get_absolute_url
 
 
 
-22. After fixing the errors, you can run the command again but pass in the the skipped.json file.
-```
-docker run -v $PWD:/opt/project -it nobel-app ./env/bin/python3 nobel/manage.py load_winners wiki-clean.json
-```
-
-# Next, passing this data from Django to D3.JS!
