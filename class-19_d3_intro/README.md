@@ -102,4 +102,36 @@ d3.select(".chart")
 ```
 We are changing the size and the text. 
 
+### New concept, Method Chaining
+9.
+Another convenience of selections is method chaining: selection methods, such as selection.attr, return the current selection. This lets you easily apply multiple operations to the same elements. To set the text color and background color of the body without method chaining. For eample. 
+``` JavaScript
+var body = d3.select("body");
+body.style("color", "black");
+body.style("background-color", "white");
 
+ //or without using a var
+ 
+ d3.select("body")
+    .style("color", "black")
+    .style("background-color", "white");
+```
+
+10. What is the problem? Sizing!
+### Scaling to Fit
+D3’s scales specify a mapping from data space (domain) to display space (range):
+
+```JavaScript
+var x = d3.scale.linear()
+    .domain([0, d3.max(data)])
+    .range([0, 420]);
+
+
+d3.select(".chart")
+  .selectAll("div")
+    .data(data)
+  .enter().append("div")
+    .style("width", function(d) { return x(d) + "px"; })
+    .text(function(d) { return d; });
+    
+```
