@@ -52,7 +52,7 @@ d3.select("body").transition()
 ## Making our first D3 Bar Chart
 7.
 ```JavaScript
-//js
+//js/scripts.js
 var data = [30, 86, 168, 281, 303, 365];
 
 d3.select(".chart")
@@ -139,6 +139,7 @@ d3.select(".chart")
 ### SVG Verson
 11.
 ```JavaScript
+//js/scripts.js
 
 // SVG Version
 var width = 420,
@@ -172,7 +173,7 @@ bar.append("text")
 
 
 ```css 
-
+//css/styles.css
 .chart2 rect {
   fill: steelblue; 
 }
@@ -187,6 +188,7 @@ bar.append("text")
 ```
 
 ```html
+<!-- index.html -->
 <h3>SVG Verson </h3>
 <svg class="chart2"></svg>
 
