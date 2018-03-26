@@ -50,6 +50,10 @@ class Winner(models.Model):
     def __str__(self):
         return "{} {} - {} ({})".format(self.person.name, self.category, self.country, self.year)
 
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('winners:winners-detail', args=[str(self.id)])
+
     def to_json(self):
         return {
             "name": self.person.name,

@@ -2,8 +2,9 @@ from django.core import serializers
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from django.http import JsonResponse
-
 from . import models
+
+
 
 
 def home(request):
@@ -20,7 +21,7 @@ def list_winners(request):
     filter_val = request.GET.get('val')
     filter_breadcrumb_name = None
     filter_breadcrumb_url = None
-    
+
     objects = models.Winner.objects.all()
 
     if filter_by and filter_val:
@@ -41,6 +42,17 @@ def list_winners(request):
         "filter_breadcrumb_name": filter_breadcrumb_name,
         "filter_breadcrumb_url": filter_breadcrumb_url,
     })
+
+def winner(request, pk):
+    winner = get_object_or_404(models.Winner, id=pk)
+    person = get_object_or_404(models.Person, id=pk)
+    context = {
+        'winner' : winner,
+        'person' : person,
+
+    }
+    return render(request, "winners/winner_detail.html", context)
+
 
 
 def list_countries(request):
@@ -74,18 +86,18 @@ def api(request):
     category = request.GET.get('category')
     country = request.GET.get('country')
     gender = request.GET.get('gender')
-    
+
     winners = models.Winner.objects.select_related('category', 'country', 'person')
 
     if category:
         winners = winners.filter(category__name=category)
-    
+
     if country:
         winners = winners.filter(country__name=country)
-    
+
     if gender:
         winners = winners.filter(person__gender=gender)
-    
+
     data = {"winners": [w.to_json() for w in winners]}
 
     return JsonResponse(data)

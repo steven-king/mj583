@@ -1,0 +1,12 @@
+{% extends "winners/base.html" %}
+{% block content %}
+
+<h2>{{ person.name }}</h2>
+<p>Winner Details</p>
+<ul>
+    <li>Year {{ winner.year }}</li>
+    <li>Category {{ winner.category}}</li>
+    <li>Country {{ winner.country}}</li>
+
+</ul>
+{% endblock %}

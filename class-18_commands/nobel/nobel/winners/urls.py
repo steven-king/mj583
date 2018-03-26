@@ -22,6 +22,7 @@ app_name = 'winners'
 urlpatterns = [
     path('', views.home, name='home'),
     path('winners/', views.list_winners, name='winners-list'),
+    path('winners/<int:pk>', views.winner, name='winners-detail'),
     path('countries/', views.list_countries, name='countries-list'),
     path('categories/', views.list_categories, name='categories-list'),
     path('categories/<slug:category>/', views.category_winners, name='category-winner-list'),
