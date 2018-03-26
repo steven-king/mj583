@@ -13,6 +13,15 @@ D3 allows you to bind arbitrary data to a Document Object Model (DOM), and then 
 3. Selects like jQuery or other libraries.
 Select DOM elements using ```javaScript d3.select("element") ``` or ```javaScript d3.selectAll("elements") ```
 
-4. 
+
+D3 employs a declarative approach, operating on arbitrary sets of nodes called selections. For example, you can rewrite the above loop as:
+
+```JavaScript
+
+
+d3.selectAll("p").style("color", "white");
+
+d3.select("body").style("background-color", "black");
+```
 
 
