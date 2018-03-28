@@ -1,0 +1,94 @@
+{% extends "winners/base.html" %}
+{% load static %}
+
+{% block breadcrumbs %}
+    <li class="breadcrumb-item active">Home</li>
+{% endblock %}
+
+{% block content %}  
+    <div class="row">
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        Winnners
+                    </h5>
+                    <p class="card-text">
+                        <a href="{% url "winners:winners-list" %}">{{ winners.count }} Winners</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        Countries
+                    </h5>
+                    <p class="card-text">
+                        <a href="{% url "winners:countries-list" %}">{{ countries.count }} Countries</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        Categories
+                    </h5>
+                    <p class="card-text">
+                        <a href="{% url "winners:categories-list" %}">{{ categories.count }} Categories</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-4">
+            <h4>Category</h4>
+            <select name="category" id="sel-category">
+                    <option value="">All</option>
+                {% for category in categories %}
+                    <option value="{{ category.name }}">{{ category.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-4">
+            <h4>Country</h4>
+            <select name="country" id="sel-country">
+                <option value="">All</option>
+                {% for country in countries %}
+                    <option value="{{ country.name }}">{{ country.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-4">
+            <h4>Gender</h4>
+            <select name="gender" id="sel-gender">
+                <option value="">All</option>
+                {% for gender in genders %}
+                    <option value="{{ gender.0 }}">{{ gender.1 }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-12">
+            <div id="nobel-bar"></div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-12">
+            <pre id="raw-json"></pre>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static "winners/js/bar.js" %}"></script>
+    <script src="{% static "winners/js/home.js" %}"></script>
+{% endblock %}
