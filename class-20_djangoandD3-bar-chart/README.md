@@ -211,12 +211,7 @@ Now we can start working on our bar chart!
 ```
 
 13. Add an init function to bar.js and call it when our home.js loads up.
-```HTML
-function initBar(config) {
-    var svgContainer = d3.select("#nobel-bar");
 
-    // Create an object to export our methods on the config
-    config.bar = {};
 
 ```html
 function initBar(config) {
