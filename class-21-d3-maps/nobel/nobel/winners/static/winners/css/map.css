@@ -1,0 +1,14 @@
+#nobel-map{
+  background: lightblue;
+}
+
+#nobel-map path {
+    stroke: gray;
+    stroke-width: 1px;
+    fill: white;
+
+}
+
+#nobel-map circle {
+    fill: red;
+}
